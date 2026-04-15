@@ -1,0 +1,124 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mentally_project.Pages.MainPage"
+             BackgroundColor="#23314F">
+
+    <!-- Изменяем RowDefinitions: только три строки, третья — растягивается на всё оставшееся место -->
+    <Grid RowDefinitions="Auto, Auto, *"
+          RowSpacing="15"
+          Padding="20">
+
+        <!-- Строка 0: приветствие -->
+        <Grid Grid.Row="0" ColumnDefinitions="*, Auto">
+            <StackLayout Grid.Column="0">
+                <Label Text="Привет, как твой день?" 
+                       FontFamily="RMR" 
+                       FontSize="24" 
+                       TextColor="#D9d9d9" 
+                       HorizontalOptions="Center"/>
+            </StackLayout>
+        </Grid>
+
+        <!-- Строка 1: кнопка "Настройки" -->
+        <Button Grid.Row="1"
+                Text="Настройки" 
+                FontFamily="RMR"
+                TextColor="White" 
+                FontSize="16"
+                BackgroundColor="#25D9d9d9"
+                CornerRadius="30"
+                Padding="20"
+                BorderWidth="0"
+                Clicked="OnSettingsClicked"
+                VerticalOptions="Fill" />
+        <!-- Заставляем кнопку растянуться на всю высоту строки (строка Auto, но для единообразия) -->
+
+        <!-- Строка 2: сетка с 5 кнопками, занимает всё оставшееся место -->
+        <Grid Grid.Row="2" 
+              ColumnSpacing="15"
+              VerticalOptions="Fill">
+            <!-- Растягиваем на всю высоту строки -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- ЛЕВАЯ КОЛОНКА -->
+            <Grid Grid.Column="0" RowSpacing="15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Button Grid.Row="0" 
+                        Text="Тесты"
+                        FontFamily="RMR" 
+                        TextColor="White" 
+                        FontSize="16"
+                        BackgroundColor="#25D9d9d9" 
+                        CornerRadius="30" 
+                        Padding="20" 
+                        BorderWidth="0"
+                        Clicked="OnTestsClicked"
+                        VerticalOptions="Fill"/>
+
+                <Button Grid.Row="1" 
+                        Text="Советы"
+                        FontFamily="RMR" 
+                        TextColor="White" 
+                        FontSize="16"
+                        BackgroundColor="#25D9d9d9" 
+                        CornerRadius="15" 
+                        Padding="20" 
+                        BorderWidth="0"
+                        Clicked="OnAdviceClicked"
+                        VerticalOptions="Fill"/>
+
+                <Button Grid.Row="2" 
+                        Text="Помощь"
+                        FontFamily="RMR" 
+                        TextColor="White" 
+                        FontSize="16"
+                        BackgroundColor="#25D9d9d9" 
+                        CornerRadius="15" 
+                        Padding="20" 
+                        BorderWidth="0"
+                        Clicked="OnHelpClicked"
+                        VerticalOptions="Fill"/>
+            </Grid>
+
+            <!-- ПРАВАЯ КОЛОНКА -->
+            <Grid Grid.Column="1" RowSpacing="15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Button Grid.Row="0" 
+                        Text="Дневник"
+                        FontFamily="RMR" 
+                        TextColor="White" 
+                        FontSize="16"
+                        BackgroundColor="#25D9d9d9" 
+                        CornerRadius="15" 
+                        Padding="20" 
+                        BorderWidth="0"
+                        Clicked="OnDiaryClicked"
+                        VerticalOptions="Fill"/>
+
+                <Button Grid.Row="1" 
+                        Text="Сводка"
+                        FontFamily="RMR" 
+                        TextColor="White" 
+                        FontSize="16"
+                        BackgroundColor="#25D9d9d9" 
+                        CornerRadius="15" 
+                        Padding="20" 
+                        BorderWidth="0"
+                        Clicked="OnSummaryClicked"
+                        VerticalOptions="Fill"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</ContentPage>
