@@ -73,7 +73,7 @@ public partial class TestPassingPage : ContentPage
         ProgressBar.Progress = progress;
     }
 
-    private void OnAnswerSelected(object sender, EventArgs e)
+    private async void OnAnswerSelected(object sender, EventArgs e)
     {
         if (sender is Button button && button.CommandParameter is string answerId)
         {
@@ -88,7 +88,7 @@ public partial class TestPassingPage : ContentPage
             button.BackgroundColor = Color.FromArgb("#667eea");
             
             // Store answer
-            var question = _currentTest?.Questions.Count > _currentQuestionIndex ? _currentTest.Questions[_currentQuestionIndex] : null;
+            var question = _currentQuestionIndex < _currentTest?.Questions.Count ? _currentTest.Questions[_currentQuestionIndex] : null;
             if (question != null)
             {
                 _answers[question.Id] = answerId;
@@ -106,7 +106,8 @@ public partial class TestPassingPage : ContentPage
             _currentQuestionIndex--;
             UpdateQuestionDisplay();
             UpdateProgress();
-            NextButton.IsEnabled = _answers.ContainsKey(_currentTest?.Questions[_currentQuestionIndex]?.Id ?? -1);
+            var questionId = _currentTest?.Questions.Count > _currentQuestionIndex ? _currentTest.Questions[_currentQuestionIndex].Id : -1;
+            NextButton.IsEnabled = questionId >= 0 && _answers.ContainsKey(questionId);
         }
     }
 

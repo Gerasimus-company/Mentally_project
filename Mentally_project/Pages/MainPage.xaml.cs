@@ -1,3 +1,6 @@
+using Mentally_project.Models;
+using Mentally_project.Services;
+
 namespace Mentally_project.Pages;
 
 public partial class MainPage : ContentPage

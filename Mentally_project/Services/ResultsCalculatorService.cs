@@ -1,4 +1,6 @@
 using System.Linq;
+using Mentally_project.Models;
+using Mentally_project.Services;
 
 namespace Mentally_project.Services;
 
@@ -56,7 +58,7 @@ public class ResultsCalculatorService : IResultsCalculatorService
             ResultTitle = resultType?.Title ?? "Неизвестный результат",
             ResultDescription = resultType?.Description ?? "",
             Scores = scores,
-            SelectedAnswers = answers.Values.ToList()
+            SelectedAnswers = [.. answers.Values]
         };
     }
     
