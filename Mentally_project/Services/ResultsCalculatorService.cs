@@ -1,3 +1,5 @@
+using System.Linq;
+
 namespace Mentally_project.Services;
 
 public interface IResultsCalculatorService

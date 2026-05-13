@@ -50,7 +50,9 @@ public class TestPassingViewModel : BindableObject
     public int CurrentQuestionNumber => CurrentQuestionIndex + 1;
 
     public Question? CurrentQuestion => 
-        CurrentTest?.Questions.ElementAtOrDefault(CurrentQuestionIndex);
+        CurrentTest != null && CurrentQuestionIndex < CurrentTest.Questions.Count 
+            ? CurrentTest.Questions[CurrentQuestionIndex] 
+            : null;
 
     public bool IsFirstQuestion => CurrentQuestionIndex == 0;
 
