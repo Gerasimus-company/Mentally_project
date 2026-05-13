@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="Mentally_project.Pages.TestPassingPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Прохождение теста"
+             BackgroundColor="#1a1a2e">
+
+    <Grid RowDefinitions="Auto, Auto, *, Auto" 
+          Padding="20" 
+          RowSpacing="15">
+        
+        <!-- Progress Bar -->
+        <Grid Grid.Row="0" ColumnDefinitions="*, Auto" ColumnSpacing="15">
+            <ProgressBar Grid.Column="0" 
+                         x:Name="ProgressBar"
+                         Progress="0"
+                         ProgressColor="#667eea"
+                         VerticalOptions="Center"/>
+            <Label Grid.Column="1"
+                   x:Name="ProgressLabel"
+                   Text="1/10"
+                   FontFamily="RMR"
+                   FontSize="14"
+                   TextColor="#D9d9d9"
+                   VerticalOptions="Center"/>
+        </Grid>
+
+        <!-- Question Number -->
+        <Label Grid.Row="1"
+               x:Name="QuestionNumberLabel"
+               Text="1/10"
+               FontFamily="RML"
+               FontSize="16"
+               TextColor="#8B5CF6"
+               HorizontalOptions="Center"
+               Margin="0,10,0,0"/>
+
+        <!-- Question Text and Answers -->
+        <ScrollView Grid.Row="2" VerticalOptions="Fill">
+            <StackLayout Spacing="20" VerticalOptions="Start">
+                <!-- Question Text -->
+                <Label x:Name="QuestionTextLabel"
+                       Text="Текст вопроса"
+                       FontFamily="RMR"
+                       FontSize="20"
+                       TextColor="#FFFFFF"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"
+                       Margin="0,20,0,30"/>
+
+                <!-- Answer Buttons -->
+                <StackLayout x:Name="AnswersStackLayout"
+                             Spacing="10"
+                             VerticalOptions="Start"/>
+            </StackLayout>
+        </ScrollView>
+
+        <!-- Navigation Buttons -->
+        <Grid Grid.Row="3" ColumnDefinitions="*, *" ColumnSpacing="15" Margin="0,20,0,0">
+            <Button Grid.Column="0"
+                    Text="← Назад"
+                    FontFamily="RMR"
+                    TextColor="White"
+                    FontSize="16"
+                    BackgroundColor="#25D9d9d9"
+                    CornerRadius="12"
+                    Padding="20"
+                    Clicked="OnPreviousClicked"/>
+            
+            <Button Grid.Column="1"
+                    x:Name="NextButton"
+                    Text="Далее →"
+                    FontFamily="RMR"
+                    TextColor="White"
+                    FontSize="16"
+                    BackgroundColor="#667eea"
+                    CornerRadius="12"
+                    Padding="20"
+                    IsEnabled="False"
+                    Clicked="OnNextClicked"/>
+        </Grid>
+    </Grid>
+</ContentPage>

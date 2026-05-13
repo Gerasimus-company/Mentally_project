@@ -9,37 +9,37 @@ public partial class MainPage : ContentPage
 
     private async void OnSettingsClicked(object sender, EventArgs e)
     {
-        await DisplayAlertAsync("Нажатие", "Открыть настройки", "OK");
+        await DisplayAlert("Настройки", "Страница настроек в разработке", "OK");
         // await Navigation.PushAsync(new SettingsPage());
     }
 
     private async void OnTestsClicked(object sender, EventArgs e)
     {
-        await DisplayAlertAsync("Нажатие", "Открыть тесты", "OK");
-        // await Navigation.PushAsync(new TestsPage());
+        var testsPage = new TestsListPage(new TestLoaderService());
+        await Navigation.PushAsync(testsPage);
     }
 
     private async void OnAdviceClicked(object sender, EventArgs e)
     {
-        await DisplayAlertAsync("Нажатие", "Открыть советы", "OK");
+        await DisplayAlert("Советы", "Страница советов в разработке", "OK");
         // await Navigation.PushAsync(new AdvicePage());
     }
 
     private async void OnHelpClicked(object sender, EventArgs e)
     {
-        await DisplayAlertAsync("Нажатие", "Открыть помощь", "OK");
+        await DisplayAlert("Помощь", "Страница помощи в разработке", "OK");
         // await Navigation.PushAsync(new HelpPage());
     }
 
     private async void OnDiaryClicked(object sender, EventArgs e)
     {
-        await DisplayAlertAsync("Нажатие", "Открыть дневник", "OK");
+        await DisplayAlert("Дневник", "Страница дневника в разработке", "OK");
         // await Navigation.PushAsync(new DiaryPage());
     }
 
     private async void OnSummaryClicked(object sender, EventArgs e)
     {
-        await DisplayAlertAsync("Нажатие", "Открыть сводку", "OK");
+        await DisplayAlert("Сводка", "Страница сводки в разработке", "OK");
         // await Navigation.PushAsync(new SummaryPage());
     }
 }

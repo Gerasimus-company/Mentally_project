@@ -10,4 +10,19 @@
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
+    <ShellContent
+        Shell.FlyoutBehavior="Disabled"
+        ContentTemplate="{DataTemplate local:TestsListPage}"
+        Route="TestsList" />
+
+    <ShellContent
+        Shell.FlyoutBehavior="Disabled"
+        ContentTemplate="{DataTemplate local:TestPassingPage}"
+        Route="TestPassing" />
+
+    <ShellContent
+        Shell.FlyoutBehavior="Disabled"
+        ContentTemplate="{DataTemplate local:ResultPage}"
+        Route="Result" />
+
 </Shell>

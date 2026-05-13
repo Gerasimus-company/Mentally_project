@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="Mentally_project.Pages.TestsListPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Mentally_project.Models"
+             Title="Тесты"
+             BackgroundColor="#1a1a2e">
+
+    <Grid RowDefinitions="Auto, *" Padding="20" RowSpacing="15">
+        <!-- Header with Import Button -->
+        <Grid Grid.Row="0" ColumnDefinitions="*, Auto">
+            <Label Grid.Column="0" 
+                   Text="Доступные тесты" 
+                   FontFamily="RMR" 
+                   FontSize="24" 
+                   TextColor="#FFFFFF"
+                   VerticalOptions="Center"/>
+            <Button Grid.Column="1"
+                    Text="📥 Импорт"
+                    FontFamily="RMR"
+                    TextColor="White"
+                    FontSize="14"
+                    BackgroundColor="#667eea"
+                    CornerRadius="15"
+                    Padding="15,10"
+                    Clicked="OnImportTestClicked"/>
+        </Grid>
+
+        <!-- Tests Collection -->
+        <CollectionView Grid.Row="1"
+                        x:Name="TestsCollectionView"
+                        SelectionMode="Single"
+                        SelectionChanged="OnTestSelected"
+                        ItemsLayout="VerticalGrid, 2">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:TestDefinition">
+                    <Frame BackgroundColor="#252550"
+                           CornerRadius="15"
+                           Padding="0"
+                           Margin="5"
+                           HasShadow="True"
+                           BorderColor="Transparent">
+                        <StackLayout Padding="15">
+                            <!-- Icon and Category -->
+                            <StackLayout Orientation="Horizontal" Spacing="10">
+                                <Label Text="{Binding Icon}" 
+                                       FontSize="24"
+                                       VerticalOptions="Center"/>
+                                <Label Text="{Binding Category}" 
+                                       FontFamily="RML"
+                                       FontSize="12"
+                                       TextColor="#8B5CF6"
+                                       VerticalOptions="Center"/>
+                            </StackLayout>
+                            
+                            <!-- Title -->
+                            <Label Text="{Binding Title}" 
+                                   FontFamily="RMR"
+                                   FontSize="16"
+                                   TextColor="#FFFFFF"
+                                   MaxLines="2"
+                                   LineBreakMode="TailTruncation"
+                                   Margin="0,10,0,5"/>
+                            
+                            <!-- Description -->
+                            <Label Text="{Binding Description}" 
+                                   FontFamily="RML"
+                                   FontSize="12"
+                                   TextColor="#D9d9d9"
+                                   MaxLines="3"
+                                   LineBreakMode="TailTruncation"
+                                   Margin="0,0,0,10"/>
+                            
+                            <!-- Info Row -->
+                            <StackLayout Orientation="Horizontal" 
+                                         Spacing="15"
+                                         VerticalOptions="End">
+                                <StackLayout Orientation="Horizontal" Spacing="5">
+                                    <Label Text="❓" FontSize="12"/>
+                                    <Label Text="{Binding QuestionsCount, StringFormat='{0} вопр.'}" 
+                                           FontFamily="RML"
+                                           FontSize="12"
+                                           TextColor="#D9d9d9"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" Spacing="5">
+                                    <Label Text="⏱️" FontSize="12"/>
+                                    <Label Text="{Binding Duration, StringFormat='{0} мин'}" 
+                                           FontFamily="RML"
+                                           FontSize="12"
+                                           TextColor="#D9d9d9"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
