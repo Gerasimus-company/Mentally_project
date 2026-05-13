@@ -15,8 +15,8 @@ public interface ITestLoaderService
 public class TestLoaderService : ITestLoaderService
 {
     private const string TestsFolder = "tests";
-    private readonly Dictionary<string, TestDefinition> _loadedTests = new();
-    private readonly List<string> _uploadedTestIds = new();
+    private readonly Dictionary<string, TestDefinition> _loadedTests = [];
+    private readonly List<string> _uploadedTestIds = [];
 
     public async Task<List<TestDefinition>> LoadTestsAsync()
     {
@@ -76,7 +76,7 @@ public class TestLoaderService : ITestLoaderService
 
     public async Task<List<string>> GetUploadedTestIdsAsync()
     {
-        return _loadedTests.Keys.ToList();
+        return [.. _loadedTests.Keys];
     }
 
     private async Task LoadBuiltInTestsAsync(List<TestDefinition> tests)

@@ -11,7 +11,7 @@ public class TestPassingViewModel : BindableObject
     
     private TestDefinition? _currentTest;
     private int _currentQuestionIndex;
-    private readonly Dictionary<int, string> _answers = new();
+    private readonly Dictionary<int, string> _answers = [];
     private bool _isCompleted;
 
     public event EventHandler<TestResult>? TestCompleted;

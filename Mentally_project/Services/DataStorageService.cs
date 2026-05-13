@@ -31,8 +31,8 @@ public class DataStorageService : IDataStorageService
     
     // In-memory storage for demo (would use Preferences/SQLite in production)
     private static User? _cachedUser;
-    private static List<TestResult> _cachedResults = new();
-    private static Dictionary<string, string> _cachedMoods = new();
+    private static List<TestResult> _cachedResults = [];
+    private static Dictionary<string, string> _cachedMoods = [];
 
     public async Task SaveUserAsync(User user)
     {
@@ -56,12 +56,12 @@ public class DataStorageService : IDataStorageService
 
     public async Task<List<TestResult>> GetTestResultsAsync()
     {
-        return _cachedResults.ToList();
+        return [.. _cachedResults];
     }
 
     public async Task<List<TestResult>> GetTestResultsByDateAsync(DateTime date)
     {
-        return _cachedResults.Where(r => r.CompletedAt.Date == date.Date).ToList();
+        return [.. _cachedResults.Where(r => r.CompletedAt.Date == date.Date)];
     }
 
     public async Task DeleteTestResultAsync(string testId, DateTime completedAt)

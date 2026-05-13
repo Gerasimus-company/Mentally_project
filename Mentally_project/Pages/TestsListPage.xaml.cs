@@ -1,12 +1,12 @@
-using System.Linq;
 using Mentally_project.Models;
+using Mentally_project.Services;
 
 namespace Mentally_project.Pages;
 
 public partial class TestsListPage : ContentPage
 {
     private readonly ITestLoaderService _testLoaderService;
-    private List<TestDefinition> _tests = new();
+    private List<TestDefinition> _tests = [];
 
     public TestsListPage(ITestLoaderService testLoaderService)
     {
@@ -36,7 +36,7 @@ public partial class TestsListPage : ContentPage
 
     private async void OnTestSelected(object sender, SelectionChangedEventArgs e)
     {
-        if (e.CurrentSelection.FirstOrDefault() is TestDefinition selectedTest)
+        if (e.CurrentSelection.Count > 0 && e.CurrentSelection[0] is TestDefinition selectedTest)
         {
             TestsCollectionView.SelectedItem = null; // Clear selection
             
