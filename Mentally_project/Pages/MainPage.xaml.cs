@@ -9,7 +9,7 @@ public partial class MainPage : ContentPage
 
     private async void OnSettingsClicked(object sender, EventArgs e)
     {
-        await DisplayAlert("Настройки", "Страница настроек в разработке", "OK");
+        await DisplayAlertAsync("Настройки", "Страница настроек в разработке", "OK");
         // await Navigation.PushAsync(new SettingsPage());
     }
 
@@ -21,25 +21,25 @@ public partial class MainPage : ContentPage
 
     private async void OnAdviceClicked(object sender, EventArgs e)
     {
-        await DisplayAlert("Советы", "Страница советов в разработке", "OK");
+        await DisplayAlertAsync("Советы", "Страница советов в разработке", "OK");
         // await Navigation.PushAsync(new AdvicePage());
     }
 
     private async void OnHelpClicked(object sender, EventArgs e)
     {
-        await DisplayAlert("Помощь", "Страница помощи в разработке", "OK");
+        await DisplayAlertAsync("Помощь", "Страница помощи в разработке", "OK");
         // await Navigation.PushAsync(new HelpPage());
     }
 
     private async void OnDiaryClicked(object sender, EventArgs e)
     {
-        await DisplayAlert("Дневник", "Страница дневника в разработке", "OK");
+        await DisplayAlertAsync("Дневник", "Страница дневника в разработке", "OK");
         // await Navigation.PushAsync(new DiaryPage());
     }
 
     private async void OnSummaryClicked(object sender, EventArgs e)
     {
-        await DisplayAlert("Сводка", "Страница сводки в разработке", "OK");
+        await DisplayAlertAsync("Сводка", "Страница сводки в разработке", "OK");
         // await Navigation.PushAsync(new SummaryPage());
     }
 }

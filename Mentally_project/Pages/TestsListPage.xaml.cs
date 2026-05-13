@@ -1,3 +1,4 @@
+using System.Linq;
 using Mentally_project.Models;
 
 namespace Mentally_project.Pages;
@@ -29,7 +30,7 @@ public partial class TestsListPage : ContentPage
         }
         catch (Exception ex)
         {
-            await DisplayAlert("Ошибка", $"Не удалось загрузить тесты: {ex.Message}", "OK");
+            await DisplayAlertAsync("Ошибка", $"Не удалось загрузить тесты: {ex.Message}", "OK");
         }
     }
 
@@ -52,13 +53,13 @@ public partial class TestsListPage : ContentPage
         {
             // In production, use FilePicker to select a JSON file
             // For now, show a message
-            await DisplayAlert("Импорт теста", 
+            await DisplayAlertAsync("Импорт теста", 
                 "Выберите JSON файл с тестом. В реальной версии откроется файловый менеджер.", 
                 "OK");
         }
         catch (Exception ex)
         {
-            await DisplayAlert("Ошибка", $"Не удалось импортировать тест: {ex.Message}", "OK");
+            await DisplayAlertAsync("Ошибка", $"Не удалось импортировать тест: {ex.Message}", "OK");
         }
     }
 }

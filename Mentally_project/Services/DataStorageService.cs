@@ -1,3 +1,6 @@
+using System.Linq;
+using Mentally_project.Models;
+
 namespace Mentally_project.Services;
 
 public interface IDataStorageService

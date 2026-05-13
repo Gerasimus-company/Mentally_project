@@ -88,7 +88,8 @@ public partial class TestPassingPage : ContentPage
             button.BackgroundColor = Color.FromArgb("#667eea");
             
             // Store answer
-            if (_currentTest?.Questions.ElementAtOrDefault(_currentQuestionIndex) is var question && question != null)
+            var question = _currentTest?.Questions.Count > _currentQuestionIndex ? _currentTest.Questions[_currentQuestionIndex] : null;
+            if (question != null)
             {
                 _answers[question.Id] = answerId;
             }
@@ -147,7 +148,7 @@ public partial class TestPassingPage : ContentPage
         }
         catch (Exception ex)
         {
-            await DisplayAlert("Ошибка", $"Не удалось завершить тест: {ex.Message}", "OK");
+            await DisplayAlertAsync("Ошибка", $"Не удалось завершить тест: {ex.Message}", "OK");
         }
     }
 }

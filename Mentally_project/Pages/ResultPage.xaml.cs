@@ -1,4 +1,6 @@
+using System.Linq;
 using Mentally_project.Models;
+using Mentally_project.Services;
 
 namespace Mentally_project.Pages;
 
@@ -29,7 +31,7 @@ public partial class ResultPage : ContentPage
 
     private async void OnSaveToDiaryClicked(object sender, EventArgs e)
     {
-        await DisplayAlert("Сохранено", "Результат сохранён в дневник", "OK");
+        await DisplayAlertAsync("Сохранено", "Результат сохранён в дневник", "OK");
         await Navigation.PopToRootAsync();
     }
 
